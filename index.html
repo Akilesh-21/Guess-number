@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-image: url(img/puzzle-wallpaper-preview.jpg);">
+    <div class="main">
+        <div class="game">
+            <h1 style="color:black;font-size: 50px;">Number guess Application</h1><br>
+            <h2 style="color: black;">select a number between 1 - 100 and Guess!</h2><br>
+            <label for="">Guess a Number:</i></label></label>
+            <input type="number" name="Enter the number" id="input">
+            <h2 id ="res"></h2>
+        </div>
+        <div class="try">
+            <h2 style="color: black;">Number of tries</h2>
+            <h3 id="tries" style="color: white;">0</h3>
+
+        </div>
+        <div class="box">
+            <input type="submit" value="Check" id="Check" onclick="find()">
+            <input type="submit" value="Next" id="Next" onclick="find()">
+        </div>
+
+        <script>
+            var number=(Math.ceil(Math.random()*100));
+            var count=1;
+            console.log(number);
+            function find()
+            {
+                var numuser=parseInt(document.getElementById("input").value);
+                if(numuser == number)
+                {
+                    document.getElementById("res").textContent="Congratulatons you guess a correct number!";
+                }
+                else if(numuser > number)
+                {
+                    document.getElementById("res").textContent="Guess the smaller value!";
+                }
+                else if(numuser < number)
+                {
+                    document.getElementById("res").textContent="Guess the greater value!";
+                }
+                else
+                {
+                    document.getElementById("res").textContent="Maximum number is 100 !";
+                }
+                document.getElementById("tries").textContent=count;
+                count++;
+            }
+        </script>
+
+
+
+
+    </div>
+</body>
+</html>
